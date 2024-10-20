@@ -9,14 +9,14 @@ const octokit = new Octokit();
 
 async function downloadDoctl(version) {
     if (process.platform === 'win32') {
-        const doctlDownload = await tc.downloadTool(`${baseDownloadURL}/v${version}/vultr-cli_${version}_windows_64-bit.zip`);
+        const doctlDownload = await tc.downloadTool(`${baseDownloadURL}/v${version}/vultr-cli_${version}_windows_amd64.zip`);
         return tc.extractZip(doctlDownload);
     }
     if (process.platform === 'darwin') {
-        const doctlDownload = await tc.downloadTool(`${baseDownloadURL}/v${version}/vultr-cli_${version}_macOs_64-bit.tar.gz`);
+        const doctlDownload = await tc.downloadTool(`${baseDownloadURL}/v${version}/vultr-cli_${version}_macOs_amd64.tar.gz`);
         return tc.extractTar(doctlDownload);
     }
-    const doctlDownload = await tc.downloadTool(`${baseDownloadURL}/v${version}/vultr-cli_${version}_linux_64-bit.tar.gz`);
+    const doctlDownload = await tc.downloadTool(`${baseDownloadURL}/v${version}/vultr-cli_${version}_linux_amd64.tar.gz`);
     return tc.extractTar(doctlDownload);
 }
 
